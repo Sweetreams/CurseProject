@@ -71,7 +71,7 @@ define gui.interface_text_font = "fonts/custom_fonts/CCElephantmen Regular.ttf"
 define gui.text_size = 28
 
 ## Размер имён персонажей.
-define gui.name_text_size = 45
+define gui.name_text_size = 30
 
 ## Размер текста в пользовательском интерфейсе.
 define gui.interface_text_size = 33
@@ -380,13 +380,13 @@ define gui.nvl_height = None
 
 ## Интервал между строчками в режиме NVL, если gui.nvl_height имеет значение
 ## None, а также между строчками и меню режима NVL.
-define gui.nvl_spacing = 1
+define gui.nvl_spacing = 15
 
 ## Местоположение, ширина и выравнивание заголовка, показывающего имя говорящего
 ## персонажа.
-define gui.nvl_name_xpos = 0
+define gui.nvl_name_xpos = 400
 define gui.nvl_name_ypos = 0
-define gui.nvl_name_width = 0
+define gui.nvl_name_width = 1000
 define gui.nvl_name_xalign = 0
 
 ## Местоположение, ширина и выравнивание диалогового текста.
