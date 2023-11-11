@@ -403,7 +403,7 @@ define gui.nvl_thought_width = 1000
 define gui.nvl_thought_xalign = 0
 
 ## Местоположение кнопок меню NVL.
-define gui.nvl_button_xpos = 675
+define gui.nvl_button_xpos = 300
 define gui.nvl_button_xalign = 0.0
 
 

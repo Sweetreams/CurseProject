@@ -464,6 +464,12 @@ screen game_menu(title, scroll=None, yinitial=0.0):
         xpos 90
         ypos 610
         action ShowMenu("about")
+
+    textbutton _("Выход"):
+        text_size 45
+        xpos 90
+        ypos 680
+        action Quit()
         
 
     label title
