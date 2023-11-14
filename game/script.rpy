@@ -6,6 +6,7 @@ init -2:
     image car_in_bg = "images/bg/notepad_in_car.png"
     image bg_in_car = "images/bg/bg_in_car.png"
     image bg_forest = "images/bg/bg_forest.png"
+    image bg_for_ya_xz = "images/bg/bg_for_ya_xz.png"
     #style default:
         #outlines [ (absolute(1), "#fff", absolute(0), absolute(0)) ]
 define narrator = nvl_narrator
@@ -21,6 +22,7 @@ define menu = nvl_menu
 init python:
     sound_vachine = "music/sound_vachine.mp3"
     off_sound_vachine = "music/off_sound_vachine.mp3"
+    bg_sound = "music/bg_sound.mp3"
     
 
 # Вместо использования оператора image можете просто
@@ -33,10 +35,13 @@ label main_menu:
     play sound musnormal
 # Игра начинается здесь:
 label start:
-    stop music fadeout 0.5
-    play music sound_vachine loop
+    
+    
     scene car_in_bg with fade:
         pause 10.0
+
+    stop music fadeout 0.5
+    play music sound_vachine loop
 
     # TODO: Добавить звук письма
     narrator """{cps=20}Трепетные, белоснежные хлопья 
@@ -63,12 +68,12 @@ label start:
     # TODO: Добавить звук заглужение мотора
     narrator """Спустя какое-то время, звук двигателя заглох.
     Водитель обернулся на заднее сидение и произнёс"""
-
+    play music bg_sound loop
     voditel "\nПриехали"
 
     nvl clear
 
-    # TODO: Звук закрытие двери
+
     narrator """Петров Игорь легким движением
     руки закрыл свой потрепанный на вид дневник,
     сделанный из телячьей кожи цвета черный тмин,
@@ -76,6 +81,8 @@ label start:
     Поправил своё тёмно-синее пальто и вышел из машины.
     """
     igor "\nСпасибо вам, всего доброго."
+
+    scene bg_forest
 
     nvl clear
     jump mansion_main
@@ -86,6 +93,7 @@ label start:
 
 
 label mansion_main:
+    
     # TODO: Звук шагов
     narrator """Добравшись до особняка,
     он начал взбираться по засыпанной снегом белой лестнице.
@@ -96,6 +104,8 @@ label mansion_main:
     narrator """За массивной дубовой дверью
     его поджидал Горелов Владимир, хозяин особняка.
     """
+
+    scene bg_for_ya_xz
 
     nvl clear
 
@@ -376,7 +386,7 @@ label to_ask_about_sergey:
 label to_ask_about_vasilisa:
     igor """\nМне интересно, как жизнь у Василисы?
     """
-    fedor """Недавно она пошла учиться в университет на врача.
+    fedor """\nНедавно она пошла учиться в университет на врача.
     Раньше она училась на модистку,
     но теперь решила сменить профессию.
     Она закончила много курсов по шитью разными техниками.
@@ -468,6 +478,22 @@ label go_to_hallway:
     а теперь не знаю, куда положил. Помоги найти.
     """
 
+    $ hf_init("search_key_bg", 200,
+        ("key_for_door", 1013, 705, _("Мишка")),)
+
+    window hide
+    # покажем вместе с фоном и фигурки на нём
+    $ hf_bg()
+    with dissolve
+
+    # запустим игру
+    $ hf_start()
+
+    # жёсткая пауза, чтобы игрок перестал кликать и не пропустил результаты
+    $ renpy.pause(1, hard=True)
+
+    $ hf_hide()
+    with dissolve
 
     $ complete_hallway = True
     jump choise_1
