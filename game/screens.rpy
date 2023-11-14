@@ -322,11 +322,11 @@ screen main_menu():
         #xpos gui.navigation_xpos
         
         
-        textbutton _("Начать игру"):
+        textbutton _("Начать игру") action Start():
         
             ypos 300
             xpos 940
-            action Start()
+            
 
         textbutton _("Загрузить"):
             
