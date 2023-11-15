@@ -1,4 +1,5 @@
 label choise_1:
+    window show
     nvl clear
     menu (nvl = True):
         "Пойти в столовую":
@@ -7,10 +8,11 @@ label choise_1:
             jump go_to_cabinet
         "Осмотреть прихожу":
             jump go_to_hallway
-        "ОБЕД" if (complete_cabinet == True and complete_dining_room == True and complete_hallway == True):
+        "Закончить осмотр" if (complete_cabinet == True and complete_dining_room == True and complete_hallway == True):
             jump end_1_chapter
 
 label choise_2:
+    window show
     nvl clear
     menu (nvl = True):
         "Спросить про Никиту":

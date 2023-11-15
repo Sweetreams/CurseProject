@@ -7,6 +7,7 @@ init -2:
     image bg_in_car = "images/bg/bg_in_car.png"
     image bg_forest = "images/bg/bg_forest.png"
     image bg_for_ya_xz = "images/bg/bg_for_ya_xz.png"
+    
     #style default:
         #outlines [ (absolute(1), "#fff", absolute(0), absolute(0)) ]
 define narrator = nvl_narrator
@@ -23,6 +24,7 @@ init python:
     sound_vachine = "music/sound_vachine.mp3"
     off_sound_vachine = "music/off_sound_vachine.mp3"
     bg_sound = "music/bg_sound.mp3"
+    sound_write = "music/asd.mp3"
     
 
 # Вместо использования оператора image можете просто
@@ -41,9 +43,10 @@ label start:
         pause 10.0
 
     stop music fadeout 0.5
-    play music sound_vachine loop
+    play music bg_sound loop volume 5.0
+    play sound sound_vachine noloop
 
-    # TODO: Добавить звук письма
+    play sound sound_write loop
     narrator """{cps=20}Трепетные, белоснежные хлопья 
     снега медленно спускались с звёздного небосвода,
     обрамляя землю необычными, на вид,
@@ -61,14 +64,15 @@ label start:
     Три долгих дня истомленный хвойный лес окутывался
     смертельным молчанием.лес окутывался по смертельной
     мере белоснежным молчанием.{/cps}"""
-
+    
+    scene bg_in_car
     nvl clear
-    stop music
-    play music off_sound_vachine noloop
+    stop sound
+    play sound off_sound_vachine noloop
     # TODO: Добавить звук заглужение мотора
     narrator """Спустя какое-то время, звук двигателя заглох.
     Водитель обернулся на заднее сидение и произнёс"""
-    play music bg_sound loop
+    
     voditel "\nПриехали"
 
     nvl clear
@@ -479,7 +483,8 @@ label go_to_hallway:
     """
 
     $ hf_init("search_key_bg", 200,
-        ("key_for_door", 1013, 705, _("Мишка")),)
+        ("key", 650, 960, _("123")),
+    )
 
     window hide
     # покажем вместе с фоном и фигурки на нём
