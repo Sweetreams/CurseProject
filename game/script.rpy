@@ -46,7 +46,9 @@ label start:
     play music bg_sound loop volume 5.0
     play sound sound_vachine noloop
 
+
     play sound sound_write loop
+
     narrator """{cps=20}Трепетные, белоснежные хлопья 
     снега медленно спускались с звёздного небосвода,
     обрамляя землю необычными, на вид,
@@ -532,5 +534,6 @@ label end_1_chapter:
     narrator """Сбросив с себя всю одежду, Игорь направился сразу в спальню,
     где тут же плюхнулся на кровать и уснул.
     """
+    jump beginning_second_chapter
    
 

@@ -469,7 +469,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
         text_size 45
         xpos 90
         ypos 680
-        action Quit()
+        action Quit(confirm= main_menu)
         
 
     label title
