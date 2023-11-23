@@ -1,22 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/choises.rpy", line 47, in script
-    jump continue_after_choise_4_second_chapter
-ScriptError: could not find label 'continue_after_choise_4_second_chapter'.
+  File "game/script.rpy", line 525, in script
+    jump choise_1
+ScriptError: could not find label 'choise_1'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/choises.rpy", line 47, in script
-    jump continue_after_choise_4_second_chapter
+  File "game/script.rpy", line 525, in script
+    jump choise_1
   File "D:\renpy-8.1.3-sdk\renpy\ast.py", line 1992, in execute
     rv = renpy.game.script.lookup(target)
   File "D:\renpy-8.1.3-sdk\renpy\script.py", line 1013, in lookup
     raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'continue_after_choise_4_second_chapter'.
+ScriptError: could not find label 'choise_1'.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.3.23091805
 gorelov_home 1.0
-Sun Nov 19 15:44:55 2023
+Mon Nov 20 19:58:46 2023

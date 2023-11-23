@@ -95,6 +95,61 @@ label start:
 
 
 
+screen map:
+    modal True
+    zorder 100
+
+    fixed:
+        xsize 1920
+        ysize 1080
+        add "images/map/map.png" align (.5,.5)
+    
+    fixed:
+        xsize 1920
+        ysize 1080
+
+        button:
+            xpos 700 ypos 190
+            xsize 100 ysize 100
+            idle_background "images/map/map_normal_1.png"
+            hover_background "images/map/map_hovel_1.png"
+            focus_mask True
+            tooltip "{b}{size=36}Кабинет{/size}{/b}"
+            action Hide("map"), Jump("go_to_cabinet")
+        button:
+            xpos 1030 ypos 485
+            xsize 100 ysize 100
+            idle_background "images/map/map_normal_2.png"
+            hover_background "images/map/map_hovel_2.png"
+            focus_mask True
+            tooltip "{b}{size=36}Прихожая{/size}{/b}"
+            action Hide("map"), Jump("go_to_hallway")
+        button:
+            xpos 860 ypos 740
+            xsize 100 ysize 100
+            idle_background "images/map/map_normal_3.png"
+            hover_background "images/map/map_hovel_3.png"
+            focus_mask True
+            tooltip "{b}{size=36}Столовая{/size}{/b}"
+            action Hide("map"), Jump("go_to_dining_room")
+        button:
+            xpos 750 ypos 530
+            xsize 100 ysize 100
+            idle_background "images/map/map_normal_4.png"
+            hover_background "images/map/map_hovel_4.png"
+            focus_mask True
+            tooltip "{p}{b}{size=36}Гостиная{/size}{/b}{p}{size=25}Лучше сначало осмотреть другие комнаты{/size}"
+            action Hide("map"), Jump("end_1_chapter")
+        
+        $tooltip = GetTooltip()
+
+        if tooltip:
+            fixed:
+                xpos 154 ypos 754
+                xsize 450 ysize 143
+                add "images/map/map1.png"
+                text "{color=#000000}[tooltip]{/color}" xsize 400 ysize 300 align (.5, .5)
+        
 
 
 
@@ -285,7 +340,7 @@ label mansion_main:
     Все разошлись по своим делам.
     """
 
-    jump choise_1
+    show screen map
 
     nvl clear
 
@@ -418,7 +473,7 @@ label continue_after_choise_2:
 
     nvl clear
 
-    jump choise_1
+    show screen map
 
 
 
@@ -467,7 +522,7 @@ label go_to_cabinet:
     """
 
     $ complete_cabinet = True
-    jump choise_1
+    show screen map
 
 
 
@@ -503,7 +558,7 @@ label go_to_hallway:
     with dissolve
 
     $ complete_hallway = True
-    jump choise_1
+    show screen map
 
 
 
